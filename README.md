@@ -1,3 +1,71 @@
+# TestApp - React Application
+
+This is a React application configured for deployment with Coolify.
+
+## Development
+
+To run the application locally:
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+```
+
+## Deployment with Coolify
+
+### Prerequisites
+
+1. A running Coolify instance
+2. Access to a Git repository (GitHub, GitLab, etc.)
+
+### Deployment Steps
+
+1. Log in to your Coolify dashboard
+2. Click on "Create New Service"
+3. Select "Application"
+4. Choose your Git repository
+5. Select the "Docker" deployment method
+6. Configure the following settings:
+   - Build Command: Already configured in Dockerfile
+   - Port: 80 (configured in Dockerfile)
+   - Environment Variables: Copy from .env file as needed
+
+### Environment Variables
+
+The following environment variables can be configured in Coolify:
+
+- `REACT_APP_NAME`: Application name
+- `REACT_APP_API_URL`: Backend API URL
+- `PORT`: Application port (default: 3000)
+- `GENERATE_SOURCEMAP`: Whether to generate source maps (default: false)
+
+## Docker
+
+To build and run the application using Docker:
+
+```bash
+# Build the image
+docker build -t testapp .
+
+# Run the container
+docker run -p 80:80 testapp
+```
+
+## Project Structure
+
+```
+testapp/
+├── src/           # Source code
+├── public/        # Static files
+├── Dockerfile     # Docker configuration
+├── nginx.conf     # Nginx configuration
+├── .env           # Environment variables
+└── README.md      # Documentation
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
